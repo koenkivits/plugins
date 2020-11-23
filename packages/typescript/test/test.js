@@ -1159,9 +1159,7 @@ test.only('picks up on newly included typescript files in watch mode', async (t)
     ],
     watch: {
       chokidar: {
-        atomic: true,
-        usePolling: true,
-        interval: 5
+        usePolling: true
       }
     },
     onwarn

@@ -1131,7 +1131,7 @@ function fakeTypescript(custom) {
   );
 }
 
-test.serial('picks up on newly included typescript files in watch mode', async (t) => {
+test.only('picks up on newly included typescript files in watch mode', async (t) => {
   // clean up artefacts from earlier builds
   const fileNames = fs.readdirSync('fixtures/watch');
   fileNames.forEach((fileName) => {
@@ -1178,6 +1178,8 @@ test.serial('picks up on newly included typescript files in watch mode', async (
 function waitForWatcherEvent(watcher, eventCode) {
   return new Promise((resolve, reject) => {
     watcher.on('event', function handleEvent(event) {
+      /* eslint-disable no-console */
+      console.log('EVENT', event.code);
       if (event.code === eventCode) {
         watcher.off('event', handleEvent);
         resolve(event);

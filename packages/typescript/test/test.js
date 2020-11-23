@@ -1157,11 +1157,6 @@ test.only('picks up on newly included typescript files in watch mode', async (t)
         target: 'es5'
       })
     ],
-    watch: {
-      chokidar: {
-        usePolling: true
-      }
-    },
     onwarn
   });
 

@@ -1166,7 +1166,7 @@ test.only('picks up on newly included typescript files in watch mode', async (t)
     onwarn
   });
 
-  await waitForWatcherEvent(watcher, 'BUNDLE_END');
+  await waitForWatcherEvent(watcher, 'END');
 
   // add new .ts file
   fs.copyFileSync(path.join(dirName, 'new.ts.1'), path.join(dirName, 'new.ts'));
@@ -1174,7 +1174,7 @@ test.only('picks up on newly included typescript files in watch mode', async (t)
   // update main.ts file to include new.ts
   fs.copyFileSync(path.join(dirName, 'main.ts.2'), path.join(dirName, 'main.ts'));
 
-  await waitForWatcherEvent(watcher, 'BUNDLE_END');
+  await waitForWatcherEvent(watcher, 'END');
 
   watcher.close();
 

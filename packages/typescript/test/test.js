@@ -1171,7 +1171,7 @@ test.only('picks up on newly included typescript files in watch mode', async (t)
   fs.copyFileSync(path.join(dirName, 'new.ts.1'), path.join(dirName, 'new.ts'));
 
   // update main.ts file to include new.ts
-  const newCode = fs.readFileSync(path.join(dirName, 'main.ts.2'), path.join(dirName, 'main.ts'));
+  const newCode = fs.readFileSync(path.join(dirName, 'main.ts.2'));
   fs.writeFileSync(path.join(dirName, 'main.ts'), newCode);
 
   await waitForWatcherEvent(watcher, 'END');

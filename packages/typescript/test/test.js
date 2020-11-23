@@ -1157,6 +1157,12 @@ test.only('picks up on newly included typescript files in watch mode', async (t)
         target: 'es5'
       })
     ],
+    watch: {
+      chokidar: {
+        usePolling: true,
+        interval: 5
+      }
+    },
     onwarn
   });
 
@@ -1178,9 +1184,10 @@ test.only('picks up on newly included typescript files in watch mode', async (t)
 });
 
 function waitForWatcherEvent(watcher, eventCode) {
+  /* eslint-disable no-console */
+  console.log('STARTING WATCH');
   return new Promise((resolve, reject) => {
     watcher.on('event', function handleEvent(event) {
-      /* eslint-disable no-console */
       console.log('EVENT', event.code);
       if (event.code === eventCode) {
         watcher.off('event', handleEvent);

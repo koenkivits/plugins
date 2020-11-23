@@ -1173,7 +1173,7 @@ test.only('picks up on newly included typescript files in watch mode', async (t)
 
   watcher.close();
 
-  const code = fs.readFileSync(path.join(dirName, 'main.ts'));
+  const code = fs.readFileSync(path.join(dirName, 'dist', 'main.js'));
   const usage = code.includes('Is it me');
   t.true(usage, 'should contain usage');
 });
